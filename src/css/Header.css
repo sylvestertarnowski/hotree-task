@@ -1,0 +1,10 @@
+.header {
+    background: rgb(53, 89, 144);
+    color: white;
+    border-top: 10px solid rgb(30, 59, 104);
+    font-size: 24px;
+    font-weight: 300;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20%;
+}

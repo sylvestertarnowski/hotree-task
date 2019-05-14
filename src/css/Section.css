@@ -1,0 +1,23 @@
+.section {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 15px;
+    padding: 0 5%;
+    box-shadow: 0 0 1px 1px rgba(230, 230, 230, 0.521);
+    background: #fff;
+}
+
+.section-title {
+    color: rgb(53, 89, 144);
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    border-bottom: 1px solid rgb(216, 216, 218);
+
+}
+
+.section-item {
+
+}

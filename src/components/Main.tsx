@@ -1,4 +1,5 @@
 import React from 'react';
+import Section from './layout/Section';
 
 type State = {
     title: string;
@@ -39,8 +40,10 @@ class Main extends React.Component<P, State> {
     render() {
         return (
             <div className="main">
-                <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
                 <form>
+                    <Section title="About">
+                        <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+                    </Section>
                     {/* <Section />
                     <Section />
                     <Section />

@@ -3,6 +3,8 @@ import Section from './layout/Section';
 import Label from './Label';
 import InputText from './InputText';
 import InputTextArea from './InputTextArea';
+import InputDropdown from './InputDropdown';
+
 
 type State = {
     title: string;
@@ -42,14 +44,13 @@ class Main extends React.Component<P, State> {
 
     handleSubmit = (e: any) => {
         e.preventDefault();
-        const { title, description } = e.target;
-        // this.setState({
-        
-        // })
-        console.log({
+        const { title, description, category } = e.target;
+        this.setState({
             title: title.value,
-            description: description.value
-        })
+            description: description.value,
+            category_id: category.value,
+        }, () => console.log(this.state))
+        
     }
 
     render() {
@@ -57,6 +58,7 @@ class Main extends React.Component<P, State> {
             <div className="main">
                 <form id="event-form" onSubmit={this.handleSubmit}>
                     <Section title="About">
+
                         <Label text="title" mandatory={true} name="title"/>
                         <InputText
                             name="title"
@@ -64,17 +66,26 @@ class Main extends React.Component<P, State> {
                             placeholder="Make it short and clear"
                             type="text"
                         />
+
                         <Label text="description" mandatory={true} name="description"/>
                         <InputTextArea 
                             name="description"
                             placeholder="Write about your event, be creative"
                         />
+
+                        <Label text="category" mandatory={false} name="category"/>
+                        <InputDropdown 
+                            name="category"
+                            placeholder="Select category"
+                        />
+
                         <Label text="reward" mandatory={false} name="reward" />
                         <InputText
                             name="reward"
                             required={false}
                             placeholder="Number"
                             type="number"
+                            text="reward points for attendance"
                         />
                     </Section>
                     {/* <Section />

@@ -5,12 +5,13 @@ type P = {
     required: boolean;
     placeholder: string;
     type: string;
+    text?: string;
 }
 
 const InputText: React.FC<P> = (props) => {
     const [value, setValue] = useState("");
 
-    const { name, required, placeholder, type } = props;
+    const { name, required, placeholder, type, text } = props;
     if(required) {
         return (
             <div>
@@ -23,6 +24,7 @@ const InputText: React.FC<P> = (props) => {
                     value={value}
                     onChange={e => setValue(e.target.value)}
                 />
+                {text ? <span>{text}</span> : null}
             </div>
         )
     }
@@ -36,6 +38,7 @@ const InputText: React.FC<P> = (props) => {
                 value={value}
                 onChange={e => setValue(e.target.value)}
             />
+            {text ? <span>{text}</span> : null}
         </div>
     )
 }

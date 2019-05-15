@@ -9,7 +9,7 @@ const Section: React.FC<SectionProps> = ({ title, children }) => {
     return (
         <div className="section">
             <div className="section-title">{title}</div>
-            <div className="section-item">{children}</div>
+            <div className="section-items">{children}</div>
         </div>
     )
 }

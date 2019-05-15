@@ -1,5 +1,8 @@
 import React from 'react';
 import Section from './layout/Section';
+import Label from './Label';
+import InputText from './InputText';
+import InputTextArea from './InputTextArea';
 
 type State = {
     title: string;
@@ -37,17 +40,49 @@ class Main extends React.Component<P, State> {
         } as Pick<State, keyof State>)
     }
 
+    handleSubmit = (e: any) => {
+        e.preventDefault();
+        const { title, description } = e.target;
+        // this.setState({
+        
+        // })
+        console.log({
+            title: title.value,
+            description: description.value
+        })
+    }
+
     render() {
         return (
             <div className="main">
-                <form>
+                <form id="event-form" onSubmit={this.handleSubmit}>
                     <Section title="About">
-                        <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+                        <Label text="title" mandatory={true} name="title"/>
+                        <InputText
+                            name="title"
+                            required={true}
+                            placeholder="Make it short and clear"
+                            type="text"
+                        />
+                        <Label text="description" mandatory={true} name="description"/>
+                        <InputTextArea 
+                            name="description"
+                            required={true}
+                            placeholder="Write about your event, be creative"
+                        />
+                        <Label text="reward" mandatory={false} name="reward" />
+                        <InputText
+                            name="reward"
+                            required={false}
+                            placeholder="Number"
+                            type="number"
+                        />
                     </Section>
                     {/* <Section />
                     <Section />
                     <Section />
                     <Button /> */}
+                    <button>Submit</button>
                 </form>
             </div>
         )

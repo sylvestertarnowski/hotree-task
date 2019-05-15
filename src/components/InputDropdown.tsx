@@ -20,7 +20,6 @@ const InputDropdown: React.FC<P> = (props) => {
         <select
             name={name}
             id={name}
-            required
             value={value}
             onChange={e => setValue(e.target.value)}
         >

@@ -14,7 +14,7 @@ const InputText: React.FC<P> = (props) => {
     const { name, required, placeholder, type, text } = props;
     if(required) {
         return (
-            <div>
+            <span>
                 <input
                     name={name}
                     id={name}
@@ -25,11 +25,11 @@ const InputText: React.FC<P> = (props) => {
                     onChange={e => setValue(e.target.value)}
                 />
                 {text ? <span>{text}</span> : null}
-            </div>
+            </span>
         )
     }
     return (
-        <div>
+        <span>
             <input
                 name={name}
                 id={name}
@@ -39,7 +39,7 @@ const InputText: React.FC<P> = (props) => {
                 onChange={e => setValue(e.target.value)}
             />
             {text ? <span>{text}</span> : null}
-        </div>
+        </span>
     )
 }
 

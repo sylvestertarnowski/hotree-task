@@ -4,6 +4,7 @@ import Label from './Label';
 import InputText from './InputText';
 import InputTextArea from './InputTextArea';
 import InputDropdown from './InputDropdown';
+import RadioPayment from './RadioPayment';
 
 
 type State = {
@@ -78,6 +79,9 @@ class Main extends React.Component<P, State> {
                             name="category"
                             placeholder="Select category"
                         />
+
+                        <Label text="payment" mandatory={false} name="payment"/>
+                        <RadioPayment />
 
                         <Label text="reward" mandatory={false} name="reward" />
                         <InputText

@@ -67,7 +67,6 @@ class Main extends React.Component<P, State> {
                         <Label text="description" mandatory={true} name="description"/>
                         <InputTextArea 
                             name="description"
-                            required={true}
                             placeholder="Write about your event, be creative"
                         />
                         <Label text="reward" mandatory={false} name="reward" />

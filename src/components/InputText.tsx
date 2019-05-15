@@ -13,24 +13,30 @@ const InputText: React.FC<P> = (props) => {
     const { name, required, placeholder, type } = props;
     if(required) {
         return (
+            <div>
+                <input
+                    name={name}
+                    id={name}
+                    required
+                    placeholder={placeholder}
+                    type={type}
+                    value={value}
+                    onChange={e => setValue(e.target.value)}
+                />
+            </div>
+        )
+    }
+    return (
+        <div>
             <input
                 name={name}
-                required
+                id={name}
                 placeholder={placeholder}
                 type={type}
                 value={value}
                 onChange={e => setValue(e.target.value)}
             />
-        )
-    }
-    return (
-        <input
-            name={name}
-            placeholder={placeholder}
-            type={type}
-            value={value}
-            onChange={e => setValue(e.target.value)}
-        />
+        </div>
     )
 }
 

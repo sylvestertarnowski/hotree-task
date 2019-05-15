@@ -35,14 +35,6 @@ class Main extends React.Component<P, State> {
         }
     }
 
-    handleChange = (e: any) => {
-        e.preventDefault();
-        const { name, value } = e.target;
-        this.setState({
-            [name]: value,
-        } as Pick<State, keyof State>)
-    }
-
     handleSubmit = (e: any) => {
         e.preventDefault();
         const { title, description, category } = e.target;

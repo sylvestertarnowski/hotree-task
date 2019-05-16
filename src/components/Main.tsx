@@ -64,6 +64,7 @@ class Main extends React.Component<P, State> {
                         <InputTextArea 
                             name="description"
                             placeholder="Write about your event, be creative"
+                            maxLength={140}
                         />
 
                         <Label text="category" mandatory={false} name="category"/>

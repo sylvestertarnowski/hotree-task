@@ -1,0 +1,15 @@
+.button-submit-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.button-submit {
+    border-radius: 2px;
+    border-style: none;
+    background: rgb(255, 142, 29);
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 16px 26px;
+}

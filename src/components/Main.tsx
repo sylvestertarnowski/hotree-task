@@ -5,6 +5,7 @@ import InputText from './InputText';
 import InputTextArea from './InputTextArea';
 import InputDropdown from './InputDropdown';
 import RadioPayment from './RadioPayment';
+import ButtonSubmit from './ButtonSubmit';
 
 
 type State = {
@@ -89,7 +90,7 @@ class Main extends React.Component<P, State> {
                     <Section />
                     <Section />
                     <Button /> */}
-                    <button>Submit</button>
+                    <ButtonSubmit text="Publish Event" />
                 </form>
             </div>
         )

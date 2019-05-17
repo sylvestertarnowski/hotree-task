@@ -6,7 +6,7 @@ type P = {
     placeholder: string;
 }
 
-const InputDropdown: React.FC<P> = (props) => {
+const DropdownCategory: React.FC<P> = (props) => {
     const [value, setValue] = useState("");
 
     const { name, placeholder } = props;
@@ -29,4 +29,4 @@ const InputDropdown: React.FC<P> = (props) => {
     )
 }
 
-export default InputDropdown;
+export default DropdownCategory;

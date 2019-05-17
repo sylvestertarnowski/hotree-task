@@ -3,9 +3,11 @@ import Section from './layout/Section';
 import Label from './Label';
 import InputText from './InputText';
 import InputTextArea from './InputTextArea';
-import InputDropdown from './InputDropdown';
+import DropdownCategory from './DropdownCategory';
+import DropdownResponsible from './DropdownResponsible';
 import RadioPayment from './RadioPayment';
 import ButtonSubmit from './ButtonSubmit';
+
 
 
 type State = {
@@ -69,7 +71,7 @@ class Main extends React.Component<P, State> {
                         />
 
                         <Label text="category" mandatory={false} name="category"/>
-                        <InputDropdown 
+                        <DropdownCategory 
                             name="category"
                             placeholder="Select category"
                         />
@@ -86,10 +88,36 @@ class Main extends React.Component<P, State> {
                             text="reward points for attendance"
                         />
                     </Section>
-                    {/* <Section />
-                    <Section />
-                    <Section />
-                    <Button /> */}
+
+                    <Section title="Coordinator">
+                        <Label text="responsible" mandatory={true} name="coordinator"/>
+                        <DropdownResponsible
+                            name="coordinator"
+                        />
+
+                        <Label text="email" mandatory={false} name="email"/>
+                        <InputText
+                            name="email"
+                            required={false}
+                            placeholder="Email"
+                            type="email"
+                        />
+                    </Section>
+
+                    <Section title="When">
+                        <Label text="starts on" mandatory={true} name="date" />
+                        <span>
+                        <InputText 
+                            name="date"
+                            required={true}
+                            placeholder="dd/mm/yyyy"
+                            type="date"
+                            text="at"
+                        />
+                        
+                        </span>
+                    </Section>
+
                     <ButtonSubmit text="Publish Event" />
                 </form>
             </div>

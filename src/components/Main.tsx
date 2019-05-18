@@ -77,87 +77,88 @@ class Main extends React.Component<P, State> {
             this.state.formSubmitted ? <Success /> :
             <div className="main">
                 <form id="event-form" onSubmit={this.handleSubmit}>
-                    <Section title="About">
+                    <div className="sections-wrapper">
+                        <Section title="About">
 
-                        <Label text="title" mandatory={true} name="title"/>
-                        <InputText
-                            name="title"
-                            required={true}
-                            placeholder="Make it short and clear"
-                            type="text"
-                        />
+                            <Label text="title" mandatory={true} name="title"/>
+                            <InputText
+                                name="title"
+                                required={true}
+                                placeholder="Make it short and clear"
+                                type="text"
+                            />
 
-                        <Label text="description" mandatory={true} name="description"/>
-                        <InputTextArea 
-                            name="description"
-                            placeholder="Write about your event, be creative"
-                            maxLength={140}
-                        />
+                            <Label text="description" mandatory={true} name="description"/>
+                            <InputTextArea 
+                                name="description"
+                                placeholder="Write about your event, be creative"
+                                maxLength={140}
+                            />
 
-                        <Label text="category" mandatory={false} name="category"/>
-                        <DropdownCategory 
-                            name="category"
-                            placeholder="Select category (skills, interests, locations)"
-                            text="Describes topic and people who should be interested in this event"
-                        />
+                            <Label text="category" mandatory={false} name="category"/>
+                            <DropdownCategory 
+                                name="category"
+                                placeholder="Select category (skills, interests, locations)"
+                                text="Describes topic and people who should be interested in this event"
+                            />
 
-                        <Label text="payment" mandatory={false} name="payment"/>
-                        <RadioPayment />
+                            <Label text="payment" mandatory={false} name="payment"/>
+                            <RadioPayment />
 
-                        <Label text="reward" mandatory={false} name="reward" />
-                        <InputText
-                            name="reward"
-                            required={false}
-                            placeholder="Number"
-                            type="number"
-                            text="reward points for attendance"
-                        />
-                    </Section>
+                            <Label text="reward" mandatory={false} name="reward" />
+                            <InputText
+                                name="reward"
+                                required={false}
+                                placeholder="Number"
+                                type="number"
+                                text="reward points for attendance"
+                            />
+                        </Section>
 
-                    <Section title="Coordinator">
-                        <Label text="responsible" mandatory={true} name="coordinator"/>
-                        <DropdownResponsible
-                            name="coordinator"
-                            loggedUserId={this.state.loggedUserId}
-                        />
+                        <Section title="Coordinator">
+                            <Label text="responsible" mandatory={true} name="coordinator"/>
+                            <DropdownResponsible
+                                name="coordinator"
+                                loggedUserId={this.state.loggedUserId}
+                            />
 
-                        <Label text="email" mandatory={false} name="email"/>
-                        <InputText
-                            name="email"
-                            required={false}
-                            placeholder="Email"
-                            type="email"
-                        />
-                    </Section>
+                            <Label text="email" mandatory={false} name="email"/>
+                            <InputText
+                                name="email"
+                                required={false}
+                                placeholder="Email"
+                                type="email"
+                            />
+                        </Section>
 
-                    <Section title="When">
-                        <Label text="starts on" mandatory={true} name="date" />
-                        <div className="input-wrapper-row">
-                        <InputText 
-                            name="date"
-                            required={true}
-                            placeholder="dd/mm/yyyy"
-                            type="date"
-                            text="at"
-                        />
-                        <InputText
-                            name="time"
-                            required={true}
-                            placeholder="--:--"
-                            type="time"
-                        />
-                        </div>
+                        <Section title="When">
+                            <Label text="starts on" mandatory={true} name="date" />
+                            <div className="input-wrapper-row">
+                            <InputText 
+                                name="date"
+                                required={true}
+                                placeholder="dd/mm/yyyy"
+                                type="date"
+                                text="at"
+                            />
+                            <InputText
+                                name="time"
+                                required={true}
+                                placeholder="--:--"
+                                type="time"
+                            />
+                            </div>
 
-                        <Label text="duration" mandatory={false} name="duration" />
-                        <InputText
-                            name="duration"
-                            required={false}
-                            placeholder="Number"
-                            type="number"
-                            text="hour"
-                        />
-                    </Section>
-
+                            <Label text="duration" mandatory={false} name="duration" />
+                            <InputText
+                                name="duration"
+                                required={false}
+                                placeholder="Number"
+                                type="number"
+                                text="hour"
+                            />
+                        </Section>
+                    </div>
                     <ButtonSubmit text="Publish Event" />
                 </form>
             </div>

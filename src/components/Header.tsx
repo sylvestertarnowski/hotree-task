@@ -3,8 +3,10 @@ import '../css/Header.css';
 
 const Header: React.FC = () => {
     return (
-        <div className="header">
-            New event
+        <div className="header-wrapper">
+            <div className="header">
+                New event
+            </div>
         </div>
     )
 }

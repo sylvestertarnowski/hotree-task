@@ -3,15 +3,27 @@ import data from '../data/employees.js';
 
 type P = {
     name: string;
+    loggedUserId: number | null;
 }
 
 const DropdownResponsible: React.FC<P> = (props) => {
     const [value, setValue] = useState("");
+
+    const { loggedUserId } = props;
+
+    let loggedUserOptions: any[] = [];
     
-    const options = data.map(category => {
-        const { id, name } = category;
-        return <option key={id} value={id}>{name}</option>
-    })
+    const options = data.map(employee => {
+        const { id, name, lastname } = employee;
+        if(id === loggedUserId) {
+            loggedUserOptions[0] = <option disabled>Me</option>;
+            loggedUserOptions[1] = <option key={loggedUserId} value={loggedUserId}>{name} {lastname}</option>;
+            loggedUserOptions[2] = <option disabled>Others</option>;
+            return null;
+        } else {
+            return <option key={id} value={id}>{name} {lastname}</option>
+        }
+    });
 
     return (
         <select
@@ -20,7 +32,10 @@ const DropdownResponsible: React.FC<P> = (props) => {
             value={value}
             onChange={e => setValue(e.target.value)}
         >
-        <option hidden>Me</option>
+        {
+            loggedUserId && 
+            loggedUserOptions
+        }
         {options}
         </select>
     )

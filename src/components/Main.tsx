@@ -22,7 +22,8 @@ type State = {
     coordinator: {
         email: string;
         id: string;
-    },
+    };
+    loggedUserId?: number | null;
 }
 
 type P = any;
@@ -35,7 +36,19 @@ class Main extends React.Component<P, State> {
         coordinator: {
             email: "",
             id: "",
-        }
+        },
+        loggedUserId: null,
+    }
+
+    getLoggedUser = ():void => {
+        //This could be replaced by fetch() API call into setState()
+        this.setState({
+            loggedUserId: 3,
+        })
+    }
+
+    componentDidMount() {
+        this.getLoggedUser();
     }
 
     handleSubmit = (e: any) => {
@@ -93,6 +106,7 @@ class Main extends React.Component<P, State> {
                         <Label text="responsible" mandatory={true} name="coordinator"/>
                         <DropdownResponsible
                             name="coordinator"
+                            loggedUserId={this.state.loggedUserId}
                         />
 
                         <Label text="email" mandatory={false} name="email"/>
@@ -114,8 +128,22 @@ class Main extends React.Component<P, State> {
                             type="date"
                             text="at"
                         />
-                        
+                        <InputText
+                            name="time"
+                            required={true}
+                            placeholder="--:--"
+                            type="time"
+                        />
                         </span>
+
+                        <Label text="duration" mandatory={false} name="duration" />
+                        <InputText
+                            name="duration"
+                            required={false}
+                            placeholder="Number"
+                            type="number"
+                            text="hour"
+                        />
                     </Section>
 
                     <ButtonSubmit text="Publish Event" />

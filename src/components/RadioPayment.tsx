@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import InputText from './InputText';
 
 const RadioPayment: React.FC = () => {
-    const [value, setValue] = useState(""); 
+    const [value, setValue] = useState("free"); 
 
     return (
         <div id="payment">

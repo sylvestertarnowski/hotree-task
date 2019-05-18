@@ -23,7 +23,7 @@ const InputTextArea: React.FC<P> = (props) => {
                 onChange={e => setValue(e.target.value)}
             />
             <br/>
-            <span>
+            <span className="description-text">
                 <span>Max length {maxLength} characters </span>
                 <span id="desc-right">{value.length}/{maxLength}</span>
             </span>

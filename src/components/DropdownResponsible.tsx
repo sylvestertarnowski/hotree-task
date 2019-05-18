@@ -16,9 +16,9 @@ const DropdownResponsible: React.FC<P> = (props) => {
     const options = data.map(employee => {
         const { id, name, lastname } = employee;
         if(id === loggedUserId) {
-            loggedUserOptions[0] = <option disabled>Me</option>;
+            loggedUserOptions[0] = <option key="me" disabled>Me</option>;
             loggedUserOptions[1] = <option key={loggedUserId} value={loggedUserId}>{name} {lastname}</option>;
-            loggedUserOptions[2] = <option disabled>Others</option>;
+            loggedUserOptions[2] = <option key="others" disabled>Others</option>;
             return null;
         } else {
             return <option key={id} value={id}>{name} {lastname}</option>

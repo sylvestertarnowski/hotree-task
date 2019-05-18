@@ -87,6 +87,7 @@ class Main extends React.Component<P, State> {
                         <DropdownCategory 
                             name="category"
                             placeholder="Select category (skills, interests, locations)"
+                            text="Describes topic and people who should be interested in this event"
                         />
 
                         <Label text="payment" mandatory={false} name="payment"/>

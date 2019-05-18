@@ -16,7 +16,8 @@
     padding-top: 15px;
     border-bottom: 1px solid rgb(216, 216, 218);
 }
-@media (min-width: 500px) {
+
+@media (min-width: 550px) {
     .section-items {
         display: grid;
         grid-template-columns: 1fr 3fr;
@@ -26,8 +27,7 @@
     } 
 }
 
-
-@media (max-width: 500px) {
+@media (max-width: 550px) {
     .section-items {
         display: grid;
         row-gap: 10px;

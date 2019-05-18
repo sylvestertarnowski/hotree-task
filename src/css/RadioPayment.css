@@ -3,10 +3,12 @@
     align-items: center;
     flex-wrap: wrap;
     min-height: 30px;
+    font-size: 15px;
 }
 
 .payment-label {
     padding-right: 15px;
+    padding-left: 1px;
 }
 
 

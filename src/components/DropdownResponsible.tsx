@@ -29,6 +29,7 @@ const DropdownResponsible: React.FC<P> = (props) => {
         <select
             name={props.name}
             id={props.name}
+            required
             value={value}
             onChange={e => setValue(e.target.value)}
         >

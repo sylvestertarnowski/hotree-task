@@ -21,3 +21,29 @@
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
+
+input, textarea, select, option {
+    font-family: 'Roboto', sans-serif;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgb(216, 216, 218);
+    font-size: 13px;
+}
+
+select {
+    color: black;
+}
+
+select.initial {
+    color: rgb(216, 216, 218);
+}
+
+option {
+    color:black;
+}
+
+option:first-of-type {
+    color: rgb(216, 216, 218);
+    font-size: 13px;
+}

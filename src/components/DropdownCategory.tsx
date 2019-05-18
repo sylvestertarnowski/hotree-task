@@ -7,7 +7,7 @@ type P = {
 }
 
 const DropdownCategory: React.FC<P> = (props) => {
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState("initial");
 
     const { name, placeholder } = props;
     
@@ -18,12 +18,13 @@ const DropdownCategory: React.FC<P> = (props) => {
 
     return (
         <select
+            className={value === "initial" ? value : value}
             name={name}
             id={name}
             value={value}
             onChange={e => setValue(e.target.value)}
         >
-        <option hidden>{placeholder}</option>
+        <option id="initial" value="initial" disabled selected>{placeholder}</option>
         {options}
         </select>
     )

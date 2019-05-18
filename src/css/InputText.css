@@ -1,0 +1,40 @@
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="email"],
+textarea,
+select {
+    padding: 4px 8px;
+}
+
+input[type="number"] {
+    max-width: 50px;
+}
+
+input[type="number"],
+input[type="date"],
+input[type="time"] {
+    margin-right: 10px;
+}
+
+@media(min-width:500px) {
+    input[type="time"] {
+        margin-left: 10px;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type="text"], input[type="email"], select {
+    width: 100%;
+}
+
+.input-side-text {
+    font-size: 14px;
+    padding-bottom: 1px;
+}

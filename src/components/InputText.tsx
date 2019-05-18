@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../css/InputText.css';
 
 type P = {
     name: string;
@@ -14,7 +15,8 @@ const InputText: React.FC<P> = (props) => {
     const { name, required, placeholder, type, text } = props;
     if(required) {
         return (
-            <span>
+            <div className="input-wrapper">
+                <div className="input-wrapper-row">
                 <input
                     name={name}
                     id={name}
@@ -24,12 +26,14 @@ const InputText: React.FC<P> = (props) => {
                     value={value}
                     onChange={e => setValue(e.target.value)}
                 />
-                {text ? <span>{text}</span> : null}
-            </span>
+                {text && <span className="input-side-text">{text}</span>}
+                </div>
+            </div>
         )
     }
     return (
-        <span>
+        <div className="input-wrapper">
+            <div className="input-wrapper-row">
             <input
                 name={name}
                 id={name}
@@ -38,8 +42,9 @@ const InputText: React.FC<P> = (props) => {
                 value={value}
                 onChange={e => setValue(e.target.value)}
             />
-            {text ? <span>{text}</span> : null}
-        </span>
+            {text ? <span className="input-side-text">{text}</span> : null}
+            </div>
+        </div>
     )
 }
 

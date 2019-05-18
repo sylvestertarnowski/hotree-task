@@ -12,7 +12,7 @@ const InputTextArea: React.FC<P> = (props) => {
     const { name, placeholder, maxLength } = props;
 
     return (
-        <span>
+        <div className="input-wrapper">
             <textarea
                 name={name}
                 id={name}
@@ -22,12 +22,11 @@ const InputTextArea: React.FC<P> = (props) => {
                 maxLength={maxLength}
                 onChange={e => setValue(e.target.value)}
             />
-            <br/>
-            <span className="description-text">
+            <div className="description-text">
                 <span>Max length {maxLength} characters </span>
                 <span id="desc-right">{value.length}/{maxLength}</span>
-            </span>
-        </span>
+            </div>
+        </div>
     )
 }
 

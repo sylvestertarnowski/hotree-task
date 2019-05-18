@@ -7,10 +7,12 @@ import DropdownCategory from './DropdownCategory';
 import DropdownResponsible from './DropdownResponsible';
 import RadioPayment from './RadioPayment';
 import ButtonSubmit from './ButtonSubmit';
+import Success from './Success';
 
 
 
 type State = {
+    formSubmitted: boolean;
     title: string;
     description: string;
     category_id?: number;
@@ -30,6 +32,7 @@ type P = any;
 
 class Main extends React.Component<P, State> {
     readonly state = {
+        formSubmitted: false,
         title: "",
         description: "",
         date: "",
@@ -47,6 +50,12 @@ class Main extends React.Component<P, State> {
         })
     }
 
+    // validateForm = ({
+
+    // }) => {
+
+    // }
+
     componentDidMount() {
         this.getLoggedUser();
     }
@@ -55,6 +64,7 @@ class Main extends React.Component<P, State> {
         e.preventDefault();
         const { title, description, category } = e.target;
         this.setState({
+            formSubmitted: true,
             title: title.value,
             description: description.value,
             category_id: category.value,
@@ -64,6 +74,7 @@ class Main extends React.Component<P, State> {
 
     render() {
         return (
+            this.state.formSubmitted ? <Success /> :
             <div className="main">
                 <form id="event-form" onSubmit={this.handleSubmit}>
                     <Section title="About">
@@ -121,7 +132,7 @@ class Main extends React.Component<P, State> {
 
                     <Section title="When">
                         <Label text="starts on" mandatory={true} name="date" />
-                        <span>
+                        <div className="input-wrapper-row">
                         <InputText 
                             name="date"
                             required={true}
@@ -135,7 +146,7 @@ class Main extends React.Component<P, State> {
                             placeholder="--:--"
                             type="time"
                         />
-                        </span>
+                        </div>
 
                         <Label text="duration" mandatory={false} name="duration" />
                         <InputText

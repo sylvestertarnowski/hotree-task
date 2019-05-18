@@ -1,4 +1,10 @@
 .main {
   background: rgb(247, 247, 247);
-  
+  display: flex;
+  justify-content: center;
+}
+
+.main-width-wrapper {
+  flex-grow: 1;
+  max-width: 1000px;
 }

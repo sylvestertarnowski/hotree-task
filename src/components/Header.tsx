@@ -3,7 +3,7 @@ import '../css/Header.css';
 
 const Header: React.FC = () => {
     return (
-        <div className="header-wrapper">
+        <div className="width-wrapper">
             <div className="header">
                 New event
             </div>

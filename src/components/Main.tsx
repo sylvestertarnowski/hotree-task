@@ -48,13 +48,13 @@ class Main extends React.Component<P, State> {
     }
 
     /* 
-    Event listener that:
+    Event listener that on invalid input:
         - changes color of input border to pink
         - changes label text to pink
-        - displays helpful tip
-        - gets removed when input is valid again. 
+        - displays helpful tip next to culprit input
+        - gets removed when input is valid again 
     */
-    getInvalidColorFeedback = () => {
+    getInvalidFeedback = () => {
         let invalidClass = 'invalid';
         let invalidLabel = 'invalid-label';
         let inputs = document.querySelectorAll('input, select, textarea');
@@ -79,7 +79,7 @@ class Main extends React.Component<P, State> {
 
     componentDidMount() {
         this.getLoggedUser();
-        this.getInvalidColorFeedback();
+        this.getInvalidFeedback();
     }
 
     isEventPaid = (val: string): boolean => {

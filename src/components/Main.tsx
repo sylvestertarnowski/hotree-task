@@ -87,7 +87,7 @@ class Main extends React.Component<P, State> {
         this.setState({
             formSubmitted: true,
             ...finalData
-        }, () => console.log(parsedFormData, finalData));
+        }, () => console.log(finalData));
     }
 
     render() {

@@ -4,6 +4,7 @@
 2. Preconfigured build will work in regular browser, just run `$ npm run build` and then open the `index.html` file in your browser.
 
 ## Important note:
+
 Data is displayed in `console.log` as plain JavaScript object, which causes for example Chrome to display keys in alphabetic order (as opposed to README order of properties).
 Using JSON.stringify() will preserve the order, but it becomes JSON (which wasn't mentioned as desired output).
 

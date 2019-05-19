@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Label.css';
+import '../../css/Label.css';
 
 type P = {
     text: string;

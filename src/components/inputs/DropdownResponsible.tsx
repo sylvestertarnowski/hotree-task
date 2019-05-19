@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import data from '../data/employees.js';
+import data from '../../data/employees.js';
 
 type P = {
     name: string;

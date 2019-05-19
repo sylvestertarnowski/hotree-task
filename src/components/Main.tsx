@@ -1,16 +1,12 @@
 import React from 'react';
-import Section from './layout/Section';
-import Label from './Label';
-import InputText from './InputText';
-import InputTextArea from './InputTextArea';
-import DropdownCategory from './DropdownCategory';
-import DropdownResponsible from './DropdownResponsible';
-import RadioPayment from './RadioPayment';
-import ButtonSubmit from './ButtonSubmit';
+import About from './About';
+import Coordinator from './Coordinator';
+import When from './When';
+import ButtonSubmit from './inputs/ButtonSubmit';
 import Success from './Success';
 
 
-// contain
+// State type defined in accordance with task ReadME
 type State = {
     formSubmitted: boolean;
     title: string;
@@ -43,137 +39,73 @@ class Main extends React.Component<P, State> {
         loggedUserId: null,
     }
 
-    getLoggedUser = ():void => {
+    getLoggedUser = (): void => {
         //This could be replaced by fetch() API call into setState()
         this.setState({
             loggedUserId: 3,
         })
     }
 
-    // validateForm = ({
-
-    // }) => {
-
-    // }
-
     componentDidMount() {
         this.getLoggedUser();
     }
 
+    isEventPaid = (val: string): boolean => {
+        if (val === "true") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     handleSubmit = (e: any) => {
         e.preventDefault();
-        const { 
+        const {
             title, description, category, paid_event,
             event_fee, reward, date, time, duration,
             coordinator, email
         } = e.target;
-        this.setState({
-            formSubmitted: true,
+
+        const validatedForm = {
             title: title.value,
             description: description.value,
-            category_id: category.value,
-            paid_event: paid_event.value,
-            event_fee: event_fee && event_fee.value,
-            reward: reward.value,
+            category_id: category.value && parseInt(category.value),
+            paid_event: this.isEventPaid(paid_event.value),
+            event_fee: event_fee && parseInt(event_fee.value),
+            reward: reward.value && parseInt(reward.value),
             date: date.value + "T" + time.value,
-            duration: duration.value * 60 * 60,
+            duration: duration.value && duration.value * 60 * 60,
             coordinator: {
                 email: email.value,
-                id: coordinator.value,
+                id: coordinator.value.toString(),
             }
-        }, () => console.log(this.state))
-        
+        }
+
+        this.setState({
+            formSubmitted: true,
+            ...validatedForm
+        }, () => console.log(validatedForm));
     }
 
     render() {
         return (
+            // Replace from with Success screen if form was submitted
             this.state.formSubmitted ? <Success /> :
-            <div className="main">
-                <div className="main-width-wrapper">
-                    <form id="event-form" onSubmit={this.handleSubmit}>
-                        <Section title="About">
-                            <Label text="title" mandatory={true} name="title"/>
-                            <InputText
-                                name="title"
-                                required={true}
-                                placeholder="Make it short and clear"
-                                type="text"
-                            />
-
-                            <Label text="description" mandatory={true} name="description"/>
-                            <InputTextArea 
-                                name="description"
-                                placeholder="Write about your event, be creative"
-                                maxLength={140}
-                            />
-
-                            <Label text="category" mandatory={false} name="category"/>
-                            <DropdownCategory 
-                                name="category"
-                                placeholder="Select category (skills, interests, locations)"
-                                text="Describes topic and people who should be interested in this event"
-                            />
-
-                            <Label text="payment" mandatory={false} name="payment"/>
-                            <RadioPayment />
-
-                            <Label text="reward" mandatory={false} name="reward" />
-                            <InputText
-                                name="reward"
-                                required={false}
-                                placeholder="Number"
-                                type="number"
-                                text="reward points for attendance"
-                            />
-                        </Section>
-
-                        <Section title="Coordinator">
-                            <Label text="responsible" mandatory={true} name="coordinator"/>
-                            <DropdownResponsible
-                                name="coordinator"
+                <div className="main">
+                    <div className="main-width-wrapper">
+                        <form
+                            id="event-form"
+                            onSubmit={this.handleSubmit}
+                        >
+                            <About />
+                            <Coordinator
                                 loggedUserId={this.state.loggedUserId}
                             />
-
-                            <Label text="email" mandatory={false} name="email"/>
-                            <InputText
-                                name="email"
-                                required={false}
-                                placeholder="Email"
-                                type="email"
-                            />
-                        </Section>
-
-                        <Section title="When">
-                            <Label text="starts on" mandatory={true} name="date" />
-                            <div className="input-wrapper-row">
-                            <InputText 
-                                name="date"
-                                required={true}
-                                placeholder="dd/mm/yyyy"
-                                type="date"
-                                text="at"
-                            />
-                            <InputText
-                                name="time"
-                                required={true}
-                                placeholder="--:--"
-                                type="time"
-                            />
-                            </div>
-
-                            <Label text="duration" mandatory={false} name="duration" />
-                            <InputText
-                                name="duration"
-                                required={false}
-                                placeholder="Number"
-                                type="number"
-                                text="hour"
-                            />
-                        </Section>
-                        <ButtonSubmit text="Publish Event" />
-                    </form>
+                            <When />
+                            <ButtonSubmit text="Publish Event" />
+                        </form>
+                    </div>
                 </div>
-            </div>
         )
     }
 }

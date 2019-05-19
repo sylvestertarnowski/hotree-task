@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import InputText from './InputText';
-import '../css/RadioPayment.css';
+import '../../css/RadioPayment.css';
 
 const RadioPayment: React.FC = () => {
     const [value, setValue] = useState("free"); 
@@ -11,7 +11,7 @@ const RadioPayment: React.FC = () => {
                 type="radio"
                 id="free"
                 name="paid_event"
-                value="true"
+                value="false"
                 onChange={e => setValue(e.target.id)}
             />
             <label htmlFor="free" className="payment-label">Free event </label>
@@ -19,7 +19,7 @@ const RadioPayment: React.FC = () => {
                 type="radio"
                 id="paid"
                 name="paid_event"
-                value="false"
+                value="true"
                 onChange={e => setValue(e.target.id)}
             />
             <label htmlFor="paid" className="payment-label">Paid event </label>

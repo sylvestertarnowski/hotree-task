@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/InputText.css';
+import '../../css/InputText.css';
 
 type P = {
     name: string;
@@ -42,7 +42,7 @@ const InputText: React.FC<P> = (props) => {
                 value={value}
                 onChange={e => setValue(e.target.value)}
             />
-            {text ? <span className="input-side-text">{text}</span> : null}
+            {text && <span className="input-side-text">{text}</span>}
             </div>
         </div>
     )

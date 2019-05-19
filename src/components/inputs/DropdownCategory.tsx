@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import data from '../data/categories.js';
+import data from '../../data/categories.js';
 
 type P = {
     name: string;

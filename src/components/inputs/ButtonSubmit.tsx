@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/ButtonSubmit.css';
+import '../../css/ButtonSubmit.css';
 
 type P = {
     text: string;

@@ -12,6 +12,7 @@ Using JSON.stringify() will preserve the order, but it becomes JSON (which wasn'
 
 1. React + TypeScript
     - chose React because I'm very comfortable with it, it allows me to create modular app, and manage state easily for form submission,
+    - the aim was to create reusable components as much as possible,
     - TypeScript for type checking to smooth out development, and to avovid silly bugs,
 2. CSS Grid & Flexbox, Responsiveness
     - since CSS frameworks are out, Grid and Flexbox will be just perfect

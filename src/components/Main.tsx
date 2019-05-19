@@ -119,7 +119,7 @@ class Main extends React.Component<P, State> {
         this.setState({
             formSubmitted: true,
             ...finalData
-        }, () => console.log(finalData));
+        }, () => console.log(JSON.stringify(finalData)));
     }
 
     render() {

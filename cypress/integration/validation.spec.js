@@ -29,8 +29,8 @@ describe('First test', () => {
 
 describe('Full fill out', () => {
     it('Fill out all the forms', () => {
-        cy.get('#title').type("title");
-        cy.get('#description').type("basic description");
+        cy.get('#title').type("Cool title");
+        cy.get('#description').type("This is the description, baby!");
         cy.get('#category').select('Hiking');
         cy.get('#paid').click();
         cy.get('#event_fee').type(50.99);

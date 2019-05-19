@@ -5,8 +5,7 @@
 
 ## Important note:
 
-Data is displayed in `console.log` as plain JavaScript object, which causes for example Chrome to display keys in alphabetic order (as opposed to README order of properties).
-Using JSON.stringify() will preserve the order, but it becomes JSON (which wasn't mentioned as desired output).
+Data is displayed in `console.log` in JSON format!
 
 ## Technologies
 

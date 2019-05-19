@@ -1,7 +1,7 @@
 ## How to run
 
 1. Rebuild app: `$npm install`. Use `$ npm start` to run the React app, running tests is only available in this mode,
-2. Preconfigured build will work in regular browser, just run `$ npm run build` and then open the `index.html` file in your browser.
+2. I preconfigured build to work with regular browser, just run `$ npm run build` and then open the `index.html` file in your browser.
 
 ## Important note:
 

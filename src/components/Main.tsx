@@ -47,8 +47,34 @@ class Main extends React.Component<P, State> {
         })
     }
 
+    /* 
+    Event listener to change color of input border and label text
+    to pink-ish when input is invalid. Gets removed when input is
+    again valid.
+    */
+    getInvalidColorFeedback = () => {
+        let invalidClass = 'invalid';
+        let invalidLabel = 'invalid-label';
+        let inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach((input: any) => {
+            let label: any = document.querySelector(`[for='${input.id}']`);
+            input.addEventListener('invalid', () => {
+                input.classList.add(invalidClass);
+                label && label.classList.add(invalidLabel);
+            })
+
+            input.addEventListener('input', () => {
+                if(input.validity.valid) {
+                    input.classList.remove(invalidClass);
+                    label && label.classList.remove(invalidLabel);
+                }
+            })
+        });
+    }
+
     componentDidMount() {
         this.getLoggedUser();
+        this.getInvalidColorFeedback();
     }
 
     isEventPaid = (val: string): boolean => {

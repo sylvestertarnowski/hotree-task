@@ -8,3 +8,11 @@
   flex-grow: 1;
   max-width: 1000px;
 }
+
+.invalid {
+  border-color: rgb(255, 178, 178);
+}
+
+.invalid-label {
+  color: rgb(255, 178, 178) !important;
+}

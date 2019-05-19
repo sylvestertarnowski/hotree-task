@@ -4,6 +4,7 @@ import Coordinator from './Coordinator';
 import When from './When';
 import ButtonSubmit from './inputs/ButtonSubmit';
 import Success from './Success';
+import getValidatedForm from '../data/getValidatedForm';
 
 
 // State type defined in accordance with task ReadME
@@ -66,10 +67,10 @@ class Main extends React.Component<P, State> {
             coordinator, email
         } = e.target;
 
-        const validatedForm = {
+        const parsedFormData = {
             title: title.value,
             description: description.value,
-            category_id: category.value && parseInt(category.value),
+            category_id: category.value !== 'initial' ? parseInt(category.value) : undefined,
             paid_event: this.isEventPaid(paid_event.value),
             event_fee: event_fee && parseInt(event_fee.value),
             reward: reward.value && parseInt(reward.value),
@@ -81,10 +82,12 @@ class Main extends React.Component<P, State> {
             }
         }
 
+        let finalData = getValidatedForm(parsedFormData);
+
         this.setState({
             formSubmitted: true,
-            ...validatedForm
-        }, () => console.log(validatedForm));
+            ...finalData
+        }, () => console.log(parsedFormData, finalData));
     }
 
     render() {

@@ -12,6 +12,7 @@ const RadioPayment: React.FC = () => {
                 id="free"
                 name="paid_event"
                 value="false"
+                defaultChecked
                 onChange={e => setValue(e.target.id)}
             />
             <label htmlFor="free" className="payment-label">Free event </label>

@@ -1,0 +1,32 @@
+.tooltip {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.tooltip-body {
+    background: rgb(255, 178, 178);
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+  
+.arrow-left {
+    width: 0; 
+    height: 0; 
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent; 
+
+    border-right: 5px solid rgb(255, 178, 178); 
+}

@@ -48,9 +48,11 @@ class Main extends React.Component<P, State> {
     }
 
     /* 
-    Event listener to change color of input border and label text
-    to pink-ish when input is invalid. Gets removed when input is
-    again valid.
+    Event listener that:
+        - changes color of input border to pink
+        - changes label text to pink
+        - displays helpful tip
+        - gets removed when input is valid again. 
     */
     getInvalidColorFeedback = () => {
         let invalidClass = 'invalid';
@@ -58,15 +60,18 @@ class Main extends React.Component<P, State> {
         let inputs = document.querySelectorAll('input, select, textarea');
         inputs.forEach((input: any) => {
             let label: any = document.querySelector(`[for='${input.id}']`);
+            let tooltip: any = document.querySelector(`[title='${input.id}']`);
             input.addEventListener('invalid', () => {
                 input.classList.add(invalidClass);
                 label && label.classList.add(invalidLabel);
+                tooltip && (tooltip.className = 'shown');
             })
 
             input.addEventListener('input', () => {
                 if(input.validity.valid) {
                     input.classList.remove(invalidClass);
                     label && label.classList.remove(invalidLabel);
+                    tooltip && (tooltip.className = 'hidden');
                 }
             })
         });
@@ -107,7 +112,8 @@ class Main extends React.Component<P, State> {
                 id: coordinator.value.toString(),
             }
         }
-
+        
+        // Form validation happens here
         let finalData = getValidatedForm(parsedFormData);
 
         this.setState({

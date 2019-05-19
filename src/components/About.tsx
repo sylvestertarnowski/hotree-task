@@ -5,6 +5,7 @@ import InputText from './inputs/InputText';
 import InputTextArea from './inputs/InputTextArea';
 import DropdownCategory from './inputs/DropdownCategory';
 import RadioPayment from './inputs/RadioPayment';
+import Tooltip from './layout/Tooltip';
 
 const About: React.FC = () => {
     return (
@@ -16,6 +17,7 @@ const About: React.FC = () => {
                 placeholder="Make it short and clear"
                 type="text"
             />
+            <Tooltip title="title" message="Title cannot be empty" />
 
             <Label text="description" mandatory={true} name="description" />
             <InputTextArea
@@ -23,6 +25,7 @@ const About: React.FC = () => {
                 placeholder="Write about your event, be creative"
                 maxLength={140}
             />
+            <Tooltip title="description" message="Description cannot be empty"/>
 
             <Label text="category" mandatory={false} name="category" />
             <DropdownCategory
@@ -30,9 +33,11 @@ const About: React.FC = () => {
                 placeholder="Select category (skills, interests, locations)"
                 text="Describes topic and people who should be interested in this event"
             />
+            <Tooltip />
 
             <Label text="payment" mandatory={false} name="payment" />
             <RadioPayment />
+            <Tooltip title="event_fee" message="Fee cannot be empty"/>
 
             <Label text="reward" mandatory={false} name="reward" />
             <InputText
@@ -42,6 +47,7 @@ const About: React.FC = () => {
                 type="number"
                 text="reward points for attendance"
             />
+            <Tooltip />
         </Section>
     )
 }

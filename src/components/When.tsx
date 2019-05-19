@@ -2,6 +2,7 @@ import React from 'react';
 import Section from './layout/Section';
 import Label from './layout/Label';
 import InputText from './inputs/InputText';
+import Tooltip from './layout/Tooltip';
 
 const When: React.FC = () => {
     return (
@@ -22,6 +23,7 @@ const When: React.FC = () => {
                     type="time"
                 />
             </div>
+            <Tooltip title="time" message="Date and time are required"/>
 
             <Label text="duration" mandatory={false} name="duration" />
             <InputText
@@ -31,6 +33,7 @@ const When: React.FC = () => {
                 type="number"
                 text="hour"
             />
+            <Tooltip />
         </Section>
     )
 }

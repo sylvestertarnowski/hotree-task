@@ -10,7 +10,7 @@
 }
 
 .invalid {
-  border-color: rgb(255, 178, 178);
+  border-color: rgb(255, 178, 178) !important;
 }
 
 .invalid-label {
